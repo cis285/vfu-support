@@ -1,0 +1,94 @@
+.sidebar
+{
+    background-color: #FAFAFA;
+    border-right: 1px solid #E5E5E5;
+
+    /* Firefox scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(190, 190, 190, 0.6) rgba(241, 241, 241, 0.99);
+}
+
+.sidebar::-webkit-scrollbar { background-color: #F1F1F1; }
+.sidebar::-webkit-scrollbar-thumb { background-color: #E5E5E5; }
+.sidebar::-webkit-scrollbar-thumb:vertical:active { background-color: #E5E5E5; }
+
+input.sidebar-search
+{
+    border-color: #E5E5E5;
+    color: #2E2E2E;
+}
+
+input[type="text"].sidebar-search { background-color : #FFF; }
+
+input.sidebar-search:focus { border-color: #008497; }
+input.sidebar-search::placeholder
+{
+    color: #000;
+    opacity: 0.3;
+}
+
+/*
+.sidebar .logo { border-bottom: 1px solid #E5E5E5; }
+*/
+
+.sidebar-articles a { color: #2E2E2E; }
+.sidebar-articles a:hover { color: #008193; }
+
+.sidebar-articles .collapse-toggle::after { border-color: #999; }
+
+.sidebar-category summary a
+{
+    color: #333;
+    font-weight: 600;
+}
+
+.sidebar-category.active { background-color: #F1F1F1; }
+
+.sidebar-topic .sidebar-subtopic::before { border-left: 2px solid #DADADA; }
+.sidebar-topic .sidebar-subtopic.active::before { border-left: 2px solid #008497; }
+
+.sidebar-topic.current-page > a,
+.sidebar-subtopic.current-page > a { color: #008193; }
+
+.sidebar .logo svg path#letterVF { fill: #111; }
+.sidebar .logo svg path#headset,
+.sidebar .logo svg path#letterU { fill: #008497; }
+
+.autocomplete { position: relative; }
+
+.autocomplete-list
+{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.autocomplete-list div:first-of-type { border-top-color: #E5E5E5; }
+.autocomplete-list div:last-of-type { border-bottom-color: #E5E5E5; }
+
+.autocomplete-list div
+{
+    color: #2E2E2E;
+    background-color: #FFF; 
+}
+.autocomplete-list div:not(:last-of-type) { border-bottom-color: #E5E5E5; }
+
+.autocomplete-list div:hover
+{
+    color: #2E2E2E !important;
+    background-color: #F1F1F1 !important;
+}
+
+.autocomplete-list .active
+{
+    color: #FFF;
+    background-color: #008497;
+}
+.autocomplete-list div.active:not(:hover):first-of-type { border-top-color: #E5E5E5; }
+.autocomplete-list div.active:not(:hover):last-of-type { border-bottom-color: #E5E5E5; }
+
+.autocomplete-list div > b,
+.autocomplete-list div.active:hover > b { color: #008497; }
+.autocomplete-list div.active > b { color: #FFF; }
