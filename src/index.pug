@@ -1,0 +1,98 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='content-type' content='text/html;charset=utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title VFU Solutions - User Support
+    link(rel='stylesheet' href='/static/css/style.css')
+  body
+    // BEGIN SIDEBAR
+    .sidebar.scrollbars
+      include /includes/nav.pug
+    // END SIDEBAR
+    main(hidden='')
+      article
+        .breadcrumb-container
+          ul.breadcrumb
+            li #[a(href='#') VFU Support]
+            li #[a(href='#') Aliquam tincidunt]
+            li #[a(href='#') Phasellus tincidunt risus vitae lacus sagittis]
+        .brief-intro
+          h1 Qui officia deserunt mollit anim id est laborum #[span.readingTime]
+          p Duis aute irure dolor in reprehenderit in voluptate velit. Qui officia deserunt mollit anim id est laborum. Facere possimus, omnis voluptas #[kbd CTRL] #[kbd Z] assumenda est, omnis dolor repellendus. Itaque earum rerum hic tenetur a sapiente delectus.
+        .main-body
+          h2#Neque Neque porro quisquam est
+          p Eaque ipsa quae ab illo inventore veritatis et quasi. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Itaque earum rerum hic tenetur a sapiente delectus. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+          blockquote(cite='http://www.worldwildlife.org/who/index.html') For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+          p Purus conubia per porttitor gravida mattis senectus consequat sociis sociosqu per dignissim. Eros netus pharetra primis nam luctus sollicitudin sed ac feugiat congue. Suscipit penatibus curae; morbi hac praesent justo dictum natoque mauris ad sed. Mauris, vitae laoreet ac quis sociosqu curabitur consectetur suscipit tortor urna quisque rhoncus. Congue nisl odio fames magna vulputate.
+          h3#Est Est ultricies integer quis auctor elit
+          .attention-box.warning
+            // .warning, .info, .success
+            p Etiam pulvinar nunc dolor, eu malesuada mauris auctor ac. Phasellus placerat quis tortor vel tincidunt. Phasellus non sem ut orci.
+            ol
+              li Nam sit amet ipsum #[strong nec ligula] fringilla aliquam.
+              li In tempor, dui ut blandit pretium, metus risus volutpat odio, in #[strong lobortis magna] est fringilla lectus. Vivamus in lectus quis magna imperdiet efficitur at in metus.
+              li In hac habitasse platea dictumst. Ut mauris ex, blandit vitae.
+          p Mollis mattis cum urna rhoncus varius ad tortor. Non eu neque consectetur torquent adipiscing mollis habitant. Mauris volutpat congue praesent et proin litora posuere pretium tempus venenatis metus. Mattis nec aliquet consequat. Dolor venenatis scelerisque montes, purus lorem hendrerit. Inceptos per venenatis libero nascetur elit gravida tempor inceptos ridiculus fames diam. Penatibus varius eget erat proin dictum donec dui commodo mollis.
+          h3#Sed Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          p Ad cum, leo id porta sociosqu penatibus ornare. Adipiscing scelerisque nisi aptent. Etiam id malesuada interdum amet ultrices donec. Dignissim ornare lacinia himenaeos conubia velit placerat integer ullamcorper. Rutrum consectetur pellentesque accumsan senectus curae; mattis urna. Fusce pretium rhoncus montes non magna mauris cubilia. Aliquet non erat lacus tincidunt id velit conubia.
+          pre.
+            #[b public] AnyType removeFirst() #[b throws] NoSuchElementException {
+                #[b if] (itemCount == 0)
+                    #[b throw new] NoSuchElementException();
+    
+                #[b var] removedItem = items[head];
+                head = (head + 1) % MAX_SIZE;
+                itemCount--;
+    
+                #[b return] removedItem;
+            }
+    
+          hr
+          h2#Sollicitudin Sollicitudin ac orci phasellus egestas
+          p Praesent porta nibh nunc, ut imperdiet ex rhoncus in. Quisque ullamcorper, lorem sit amet efficitur posuere, nisl turpis pellentesque lectus, nec varius lectus quam eget enim. Morbi justo sem, ultricies at vulputate at, blandit a dolor. Integer dictum ipsum dui, interdum convallis sem ornare eu. Donec vel varius massa. Fusce #[code quis vestibulum] est, a auctor leo. Fusce eu lacus a erat porta consectetur dapibus ac felis. Morbi egestas scelerisque euismod.
+          ul
+            li Vivamus odio turpis
+            li Aliquam orci lorem #[img(onmouseover='handleImageHover(this)' src='https://assets.imgix.net/unsplash/hotairballoon.jpg?w=600')]
+            li Ut bibendum
+            ul
+              li #[a(href='#') Quisque vestibulum ut tellus eu elementum]
+              li Pellentesque eu ultricies dui
+                ul
+                  li Aenean vestibulum #[kbd SHIFT] #[kbd R] porttitor
+                  li #[a(href='#') Duis hendrerit feugiat erat nec volutpat]
+            li Donec nec vulputate
+            li Phasellus fermentum
+          h3#Urna Urna neque viverra justo nec ultrices dui
+          p Id aliquet risus feugiat in ante metus. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. Est velit egestas dui id ornare arcu odio ut sem. Morbi non arcu risus quis varius quam quisque. Id diam maecenas ultricies mi eget. Quam viverra orci sagittis eu volutpat odio. Tortor id aliquet lectus proin nibh nisl. Enim sit amet venenatis urna cursus eget nunc scelerisque viverra. Eu volutpat odio facilisis mauris. Sit amet luctus venenatis lectus magna fringilla.
+          // .align-left, .no-col-border
+          table
+            thead
+              tr
+                th First Name
+                th Last Name
+                th School
+                th Major
+            tbody
+              tr
+                td(data-label='First Name') Bob
+                td(data-label='Last Name') Smith
+                td(data-label='School') Northeastern University
+                td(data-label='Major') Computer Science
+              tr
+                td(data-label='First Name') James
+                td(data-label='Last Name') Johnson
+                td(data-label='School') Northeastern University
+                td(data-label='Major') Digital Media
+              tr
+                td(data-label='First Name') Mike
+                td(data-label='Last Name') Williams
+                td(data-label='School') Northeastern University
+                td(data-label='Major') Leadership
+          p Amet justo donec enim diam vulputate. Nisl vel pretium lectus quam id leo in vitae turpis. Est ante in nibh mauris cursus mattis. Sed adipiscing diam donec adipiscing. Quis enim lobortis scelerisque fermentum dui faucibus. Magna ac placerat vestibulum lectus mauris ultrices eros in. Amet risus nullam eget felis eget nunc lobortis mattis aliquam. Pretium quam vulputate dignissim suspendisse in est. Ut eu sem integer vitae justo.
+      // BEGIN ARTICLE TOC
+      .article-toc-container
+        .article-toc
+      // END ARTICLE TOC
+    script(src='/static/js/app.js')
+  

@@ -1,0 +1,55 @@
+.autocomplete
+  input.sidebar-search(type='text' placeholder='Filter by topic title' autocomplete='off')
+ul.sidebar-articles
+  li.sidebar-category
+    details.expando.details
+      summary
+        .sidebar-category-name
+          a(href='/pages/category1.html') Get advisories and other resources for Bitbucket Cloud
+          .collapse-toggle
+      ul
+        li.sidebar-topic
+          a(href='#') Access security advisories for Bitbucket Cloud
+        li.sidebar-topic
+          a(href='#') View end of support announcements for Bitbucket Cloud
+        li.sidebar-topic
+          a(href='#') Read FAQs about Bitbucket Cloud
+  li.sidebar-category
+    details.expando.details
+      summary
+        .sidebar-category-name
+          a(href='/pages/category2.html') Working with repositories
+          .collapse-toggle
+      ul
+        li.sidebar-topic
+          a(href='/pages/category2/topic1.html') Creating repositories
+          ul
+            li.sidebar-subtopic
+              a(href='#') Controlling access to code
+            li.sidebar-subtopic
+              a(href='/pages/category2/subtopic2.html') Using pull requests in Bitbucket Server
+            li.sidebar-subtopic
+              a(href='#') Working with Git LFS files
+            li.sidebar-subtopic
+              a(href='#') Comparing changes in Bitbucket Server
+        li.sidebar-topic
+          a(href='#') Using pull requests in Bitbucket Server
+        li.sidebar-topic
+          a(href='#') Basic Git commands
+        li.sidebar-topic
+          a(href='#') Permanently authenticating with Git repositories
+  li.sidebar-category
+    details.expando.details
+      summary
+        .sidebar-category-name
+          a(href='/pages/category3.html') Manage your plans and settings in Bitbucket Cloud
+          .collapse-toggle
+      ul
+        li.sidebar-topic
+          a(href='#') Manage your plan and billing
+        li.sidebar-topic
+          a(href='#') Bitbucket Cloud Premium plan
+        li.sidebar-topic
+          a(href='#') Manage Bitbucket and account settings
+        li.sidebar-topic
+          a(href='#') Configure SSH and two-step verification

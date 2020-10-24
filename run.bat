@@ -1,0 +1,1 @@
+pug -b src/ -w src/ -o html/ -P

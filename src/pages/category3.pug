@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta(http-equiv='content-type' content='text/html;charset=utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Category #3 - VFU Solutions
+    link(rel='stylesheet' href='/static/css/style.css')
+  body
+    // BEGIN SIDEBAR
+    .sidebar.scrollbars
+      include /includes/nav.pug
+    // END SIDEBAR
+    main(hidden='')
+      article
+        .breadcrumb-container
+          ul.breadcrumb
+            li #[a(href='/index.html') VFU Support]
+            li #[a(href='#') Aliquam tincidunt]
+            li #[a(href='#') Manage your plans and settings in Bitbucket Cloud]
+        .brief-intro
+          h1 Manage your plans and settings in Bitbucket Cloud #[span.readingTime]
+          p Integer orci nisi, blandit in pretium vel, finibus eu magna. Phasellus aliquam iaculis augue, consectetur fermentum nisl ultrices vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        .main-body
+          .sidebar-topic-toc
+            h2#toc Table of Contents
+            ol
+      // BEGIN ARTICLE TOC
+      .article-toc-container
+        .article-toc
+      // END ARTICLE TOC
+    script(src='/static/js/app.js')
+    script.
+      genSidebarCategoryToc()
