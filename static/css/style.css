@@ -541,7 +541,7 @@ h4.heading-anchor, h5.heading-anchor, h6.heading-anchor
 {
     float: left;
     opacity: 0;
-    background: url(/static/images/icon_anchor.svg) 50%/contain no-repeat;
+    background: url(/vfu-support/static/images/icon_anchor.svg) 50%/contain no-repeat;
     transition: opacity .08s linear;
     vertical-align: middle;
 }

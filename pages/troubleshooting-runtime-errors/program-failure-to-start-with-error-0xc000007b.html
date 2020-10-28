@@ -4,13 +4,13 @@
     <title>Program failure to start with error 0xc000007b - VFU Support</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/vfu-support/static/css/style.css">
     <script>
       if (localStorage.getItem('theme') === 'theme-dark')
       {
           var sheet = document.createElement('link');
           sheet.rel = 'stylesheet';
-          sheet.href = '/static/css/theme-dark.css';
+          sheet.href = '/vfu-support/static/css/theme-dark.css';
           document.head.appendChild(sheet);
       }
     </script>
@@ -25,33 +25,33 @@
         <li class="sidebar-category">
           <details class="expando details">
             <summary>
-              <div class="sidebar-category-name"><a href="/pages/short-guides.html">Short guides on a variety of topics</a>
+              <div class="sidebar-category-name"><a href="/vfu-support/pages/short-guides.html">Short guides on a variety of topics</a>
                 <div class="collapse-toggle"></div>
               </div>
             </summary>
             <ul>
-              <li class="sidebar-topic"><a href="/pages/short-guides/guides-for-visual-studio.html">Guides for Visual Studio</a>
+              <li class="sidebar-topic"><a href="/vfu-support/pages/short-guides/guides-for-visual-studio.html">Guides for Visual Studio</a>
                 <ul>
-                  <li class="sidebar-subtopic"><a href="/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html">Adding components to an existing Visual Studio Installation</a></li>
-                  <li class="sidebar-subtopic"><a href="/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html">Setting up a Windows Forms application GUI in C++/CLI</a></li>
+                  <li class="sidebar-subtopic"><a href="/vfu-support/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html">Adding components to an existing Visual Studio Installation</a></li>
+                  <li class="sidebar-subtopic"><a href="/vfu-support/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html">Setting up a Windows Forms application GUI in C++/CLI</a></li>
                 </ul>
               </li>
             </ul>
             <ul>
-              <li class="sidebar-topic"><a href="/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html">Installing and setting up WSL 2 on Windows</a></li>
+              <li class="sidebar-topic"><a href="/vfu-support/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html">Installing and setting up WSL 2 on Windows</a></li>
             </ul>
           </details>
         </li>
         <li class="sidebar-category">
           <details class="expando details">
             <summary>
-              <div class="sidebar-category-name"><a href="/pages/troubleshooting-runtime-errors.html">Troubleshooting runtime errors</a>
+              <div class="sidebar-category-name"><a href="/vfu-support/pages/troubleshooting-runtime-errors.html">Troubleshooting runtime errors</a>
                 <div class="collapse-toggle"></div>
               </div>
             </summary>
             <ul>
-              <li class="sidebar-topic"><a href="/pages/troubleshooting-runtime-errors/regsvr32-failure-with-error-code-0x80070005.html">RegSvr32 failure with error code 0x80070005</a></li>
-              <li class="sidebar-topic"><a href="/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html">Program failure to start with error 0xc000007b</a></li>
+              <li class="sidebar-topic"><a href="/vfu-support/pages/troubleshooting-runtime-errors/regsvr32-failure-with-error-code-0x80070005.html">RegSvr32 failure with error code 0x80070005</a></li>
+              <li class="sidebar-topic"><a href="/vfu-support/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html">Program failure to start with error 0xc000007b</a></li>
             </ul>
           </details>
         </li>
@@ -62,9 +62,9 @@
       <article>
         <div class="breadcrumb-container">
           <ul class="breadcrumb">
-            <li><a href="/index.html">VFU Support</a></li>
-            <li><a href="/pages/troubleshooting-runtime-errors.html">Troubleshooting runtime errors</a></li>
-            <li><a href="/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html">Program failure to start with error 0xc000007b</a></li>
+            <li><a href="/vfu-support/index.html">VFU Support</a></li>
+            <li><a href="/vfu-support/pages/troubleshooting-runtime-errors.html">Troubleshooting runtime errors</a></li>
+            <li><a href="/vfu-support/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html">Program failure to start with error 0xc000007b</a></li>
           </ul>
         </div>
         <div class="brief-intro">
@@ -73,7 +73,7 @@
         </div>
         <div class="main-body">
           <h2 id="symptoms">Symptoms</h2>
-          <p>Starting a program, typically third-party, will cause the executing program to output a runtime error with code <strong>0xc000007b</strong> then exit.</p><img onmouseover="handleImageHover(this)" src="/static/images/troubleshooting-runtime-errors/program_fail_to_start_0xc000007b.png">
+          <p>Starting a program, typically third-party, will cause the executing program to output a runtime error with code <strong>0xc000007b</strong> then exit.</p><img onmouseover="handleImageHover(this)" src="/vfu-support/static/images/troubleshooting-runtime-errors/program_fail_to_start_0xc000007b.png">
           <h2 id="cause">Cause</h2>
           <p>The error code is defined as <code>STATUS_INVALID_IMAGE_FORMAT</code> in the operating system's NTSTATUS header file <code>ntstatus.h</code>.</p>
           <p>The most likely cause of the error is a program that is not compatible with the architecture of your operating system or that dependencies are missing.</p>
@@ -106,6 +106,6 @@
       </div>
       <!-- END ARTICLE TOC-->
     </main>
-    <script src="/static/js/app.js"></script>
+    <script src="/vfu-support/static/js/app.js"></script>
   </body>
 </html>

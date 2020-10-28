@@ -8,7 +8,7 @@ function toggleTheme()
     if (localStorage.getItem('theme') === 'theme-default')
     {
         setTheme('theme-dark');
-        createStylesheetElement('/static/css/theme-dark.css');
+        createStylesheetElement('/vfu-support/static/css/theme-dark.css');
         
         document.getElementById('themeToggle').checked = true;
     }
@@ -411,7 +411,7 @@ function hideImageOverlay(elm)
             document.getElementById('themeToggle').checked = true;
     }
 
-    fetchData('/static/articles.json', true).then(data =>
+    fetchData('/vfu-support/static/articles.json', true).then(data =>
     {
         const searchInp = document.getElementsByClassName('sidebar-search')[0];
         autocompleteInput(searchInp, data);
