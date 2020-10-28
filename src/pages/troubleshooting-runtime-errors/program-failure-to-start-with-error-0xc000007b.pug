@@ -13,16 +13,16 @@ html(lang='en')
       article
         .breadcrumb-container
           ul.breadcrumb
-            li #[a(href='/index.html') VFU Support]
-            li #[a(href='/pages/troubleshooting-runtime-errors.html') Troubleshooting runtime errors]
-            li #[a(href='/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html') #{docTitle}]
+            li #[a(href='/vfu-support/index.html') VFU Support]
+            li #[a(href='/vfu-support/pages/troubleshooting-runtime-errors.html') Troubleshooting runtime errors]
+            li #[a(href='/vfu-support/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html') #{docTitle}]
         .brief-intro
           h1 #{docTitle} #[span.readingTime]
           p Runtime error thrown by a program directly after execution.
         .main-body
           h2#symptoms Symptoms
           p Starting a program, typically third-party, will cause the executing program to output a runtime error with code #[strong 0xc000007b] then exit.
-          img(onmouseover='handleImageHover(this)' src='/static/images/troubleshooting-runtime-errors/program_fail_to_start_0xc000007b.png') 
+          img(onmouseover='handleImageHover(this)' src='/vfu-support/static/images/troubleshooting-runtime-errors/program_fail_to_start_0xc000007b.png') 
           
           h2#cause Cause
           p The error code is defined as #[code STATUS_INVALID_IMAGE_FORMAT] in the operating system's NTSTATUS header file #[code ntstatus.h].
@@ -33,5 +33,5 @@ html(lang='en')
       // BEGIN ARTICLE TOC
       include /includes/toc.pug
       // END ARTICLE TOC
-    script(src='/static/js/app.js')
+    script(src='/vfu-support/static/js/app.js')
   

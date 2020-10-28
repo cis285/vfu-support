@@ -13,9 +13,9 @@ html(lang='en')
       article
         .breadcrumb-container
           ul.breadcrumb
-            li #[a(href='/index.html') VFU Support]
-            li #[a(href='/pages/short-guides.html') Short guides on a variety of topics]
-            li #[a(href='/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html') #{docTitle}]
+            li #[a(href='/vfu-support/index.html') VFU Support]
+            li #[a(href='/vfu-support/pages/short-guides.html') Short guides on a variety of topics]
+            li #[a(href='/vfu-support/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html') #{docTitle}]
         .brief-intro
           h1 #{docTitle} #[span.readingTime]
           p Run a GNU/Linux environment on the Windows operating system without the overhead of a virtual machine or dual-boot configuration.
@@ -100,13 +100,13 @@ html(lang='en')
           h3#install-wsl-distro Install a Linux distro
           ol
             li Launch #[a(href='https://aka.ms/wslstore') Microsoft Store] and choose your preferred linux distribution to install.
-              img(onmouseover='handleImageHover(this)' src='/static/images/short-guides/ms-store/store_linux_distros.png')
+              img(onmouseover='handleImageHover(this)' src='/vfu-support/static/images/short-guides/ms-store/store_linux_distros.png')
             li From the distribution's page, press the #[strong Get] button.
-              img(onmouseover='handleImageHover(this)' src='/static/images/short-guides/ms-store/store_debian_page.png')
+              img(onmouseover='handleImageHover(this)' src='/vfu-support/static/images/short-guides/ms-store/store_debian_page.png')
           p Once installed, launch the distribution from you computer and create a local Linux user account account as prompted.
       
       // BEGIN ARTICLE TOC
       include /includes/toc.pug
       // END ARTICLE TOC
-    script(src='/static/js/app.js')
+    script(src='/vfu-support/static/js/app.js')
   

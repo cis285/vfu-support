@@ -13,10 +13,10 @@ html(lang='en')
       article
         .breadcrumb-container
           ul.breadcrumb
-            li #[a(href='/index.html') VFU Support]
-            li #[a(href='/pages/short-guides.html') Short guides on a variety of topics]
-            li #[a(href='/pages/short-guides/guides-for-visual-studio.html') Guides for Visual Studio]
-            li #[a(href='/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html') #{docTitle}]
+            li #[a(href='/vfu-support/index.html') VFU Support]
+            li #[a(href='/vfu-support/pages/short-guides.html') Short guides on a variety of topics]
+            li #[a(href='/vfu-support/pages/short-guides/guides-for-visual-studio.html') Guides for Visual Studio]
+            li #[a(href='/vfu-support/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html') #{docTitle}]
         .brief-intro
           h1 #{docTitle} #[span.readingTime]
           p Straightforward guide on adding and configuring workload or individual components for an existing Visual Studio installation.
@@ -33,11 +33,11 @@ html(lang='en')
               .attention-box.warning
                 p #[strong Before proceeding further:] If the installer prompts you to update it, it is best to do so before applying any modification to the installation.
             li In the installer, look for the Visual Studio edition you have installed and, from the #[i More] dropdown button, choose #[strong Modify]. 
-              img(onmouseover='handleImageHover(this)' src='/static/images/short-guides/visual-studio/vs_installer_01.png')
+              img(onmouseover='handleImageHover(this)' src='/vfu-support/static/images/short-guides/visual-studio/vs_installer_01.png')
 
           h2#modify-workloads Modify workloads, individual components, and language packs
           p The installer has a tabbed interface that offers the ability to make three types of installation modifications: #[strong workloads], #[strong individual components], and #[strong language packs].
-          img(onmouseover='handleImageHover(this)' src='/static/images/short-guides/visual-studio/vs_installer_02.png')
+          img(onmouseover='handleImageHover(this)' src='/vfu-support/static/images/short-guides/visual-studio/vs_installer_02.png')
           h3#workloads Workloads
           p Workloads are simply a bundle of components that work together to provide a specific feature. For example, selecting the #[i Linux development with C++] workload would install the core C++ features along with extra components specifically targeting the Linux environment.
           
@@ -63,11 +63,11 @@ html(lang='en')
           
           h3#apply-modifications Apply modifications
           p Modifications can be applied in one of two methods: parallel mode where downloading and installing occurs at the same time, or by downloading first then installing. The latter is designed to work best if the Internet connection is slow.
-          img(src='/static/images/short-guides/visual-studio/vs_installer_03.png')
+          img(src='/vfu-support/static/images/short-guides/visual-studio/vs_installer_03.png')
           p Once you have completed selecting the components that you want to install, you will need to apply the them by pressing the #[strong Modify] button on the bottom-right corner of the user interface.
 
       // BEGIN ARTICLE TOC
       include /includes/toc.pug
       // END ARTICLE TOC
-    script(src='/static/js/app.js')
+    script(src='/vfu-support/static/js/app.js')
   

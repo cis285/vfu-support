@@ -13,9 +13,9 @@ html(lang='en')
       article
         .breadcrumb-container
           ul.breadcrumb
-            li #[a(href='/index.html') VFU Support]
-            li #[a(href='/pages/troubleshooting-runtime-errors.html') Troubleshooting runtime errors]
-            li #[a(href='/pages/troubleshooting-runtime-errors/regsvr32-failure-with-error-code-0x80070005.html') #{docTitle}]
+            li #[a(href='/vfu-support/index.html') VFU Support]
+            li #[a(href='/vfu-support/pages/troubleshooting-runtime-errors.html') Troubleshooting runtime errors]
+            li #[a(href='/vfu-support/pages/troubleshooting-runtime-errors/regsvr32-failure-with-error-code-0x80070005.html') #{docTitle}]
         .brief-intro
           h1 #{docTitle} #[span.readingTime]
           p Runtime error thrown by RegSvr32 while attempting to register or unregister an ActiveX control (OCX) or a dynamic-link library (DLL).
@@ -28,7 +28,7 @@ html(lang='en')
           p The most common symptom occurs when you manually attempt to register or unregister a COM component through a CLI command such as:
           pre.cmd #[span.ch-kw3 regsvr32] file.dll
           P And the utility outputs a runtime error with code #[strong 0x80070005].
-          img(onmouseover='handleImageHover(this)' src='/static/images/troubleshooting-runtime-errors/regsvr32_fail_to_register.png')
+          img(onmouseover='handleImageHover(this)' src='/vfu-support/static/images/troubleshooting-runtime-errors/regsvr32_fail_to_register.png')
 
           h2#cause Cause
           p The cause of the error is insufficient access privileges to use the utility for registration or unregistration. RegSvr32 internally calls two operating system functions defined in #[code olectl.h]:
@@ -44,5 +44,5 @@ html(lang='en')
       // BEGIN ARTICLE TOC
       include /includes/toc.pug
       // END ARTICLE TOC
-    script(src='/static/js/app.js')
+    script(src='/vfu-support/static/js/app.js')
   

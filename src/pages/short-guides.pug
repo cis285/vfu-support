@@ -13,8 +13,8 @@ html(lang='en')
       article
         .breadcrumb-container
           ul.breadcrumb
-            li #[a(href='/index.html') VFU Support]
-            li #[a(href='/pages/short-guides.html') #{docTitle}]
+            li #[a(href='/vfu-support/index.html') VFU Support]
+            li #[a(href='/vfu-support/pages/short-guides.html') #{docTitle}]
         .brief-intro
           h1 #{docTitle}
           p Guides that are short, simple, and cover a variety of topics ranging from software, programming practices to web design.
@@ -25,6 +25,6 @@ html(lang='en')
       // BEGIN ARTICLE TOC
       include /includes/toc.pug
       // END ARTICLE TOC
-    script(src='/static/js/app.js')
+    script(src='/vfu-support/static/js/app.js')
     script.
       genSidebarCategoryToc()
