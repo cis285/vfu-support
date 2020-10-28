@@ -1,0 +1,112 @@
+doctype html
+html(lang='en')
+  head
+    - var docTitle = 'Installing and setting up WSL 2 on Windows'
+    title #{docTitle} - VFU Support
+    include /includes/head.pug
+  body
+    // BEGIN SIDEBAR
+    .sidebar.scrollbars
+      include /includes/nav.pug
+    // END SIDEBAR
+    main
+      article
+        .breadcrumb-container
+          ul.breadcrumb
+            li #[a(href='/index.html') VFU Support]
+            li #[a(href='/pages/short-guides.html') Short guides on a variety of topics]
+            li #[a(href='/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html') #{docTitle}]
+        .brief-intro
+          h1 #{docTitle} #[span.readingTime]
+          p Run a GNU/Linux environment on the Windows operating system without the overhead of a virtual machine or dual-boot configuration.
+        .main-body
+          h2#background-on-wsl Background on Windows Subsystem for Linux (WSL)
+          p WSL is a compatibility layer that allows developers run a GNU/Linux environment &mdash;including most command-line tools, utilities, and applications&mdash; directly on Windows, unmodified, and without the overhead of a traditional virtual machine or dual-boot configuration.
+
+          h2#wsl2 WSL version 2.0
+          p WSL 2 is the latest version of Windows Subsystem for Linux and a major upgrade over the original WSL. It powers the WSL architechture to run ELF64 Linux binaries on Windows with primary goals being increased file system performance, as well as adding full system call compatibility.
+          p The overhauled architecture changes how these Linux binaries interact with Windows and your computer's hardware, but still provides the same user experience as in WSL 1 (the current widely available version).
+          p Individual Linux distributions can be run with either the WSL 1 or WSL 2 architecture. Each distribution can be upgraded or downgraded at any time and you can run WSL 1 and WSL 2 distributions side by side. WSL 2 uses an entirely new architecture that benefits from running a real Linux kernel.
+          
+          h3#wsl2-system-requirements System requirements
+          table.type-c
+            thead
+              tr
+                th Architechture
+                th Minimum Version
+                th Minimum Build
+            tbody
+              tr
+                td(data-label='Architechture') x64
+                td(data-label='Minimum Version') 1903
+                td(data-label='Minimum Build') 18362
+              tr
+                td(data-label='Architechture') ARM64
+                td(data-label='Minimum Version') 2004
+                td(data-label='Minimum Build') 19041
+          p Builds lower than 18362 do not support WSL 2. Use the #[a(href='https://www.microsoft.com/software-download/windows10') Windows Update Assistant] to update your version of Windows in order to use it.
+
+          h3#wsl-wsl2-comparison Comparison between WSL and WSL 2
+          table.type-c
+            thead
+              tr
+                th Feature
+                th WSL
+                th WSL 2
+            tbody
+              tr
+                td(data-label='Feature') Integration between Windows and Linux
+                td(data-label='WSL') &#10004;
+                td(data-label='WSL 2') &#10004;
+              tr
+                td(data-label='Feature') Fast boot times
+                td(data-label='WSL') &#10004;
+                td(data-label='WSL 2') &#10004;
+              tr
+                td(data-label='Feature') Managed VM
+                td(data-label='WSL') &#10008;
+                td(data-label='WSL 2') &#10004;
+              tr
+                td(data-label='Feature') Real Linux kernel
+                td(data-label='WSL') &#10008;
+                td(data-label='WSL 2') &#10004;
+              tr
+                td(data-label='Feature') Full system call compatibility
+                td(data-label='WSL') &#10008;
+                td(data-label='WSL 2') &#10004;
+              tr
+                td(data-label='Feature') Performance across OS file systems
+                td(data-label='WSL') &#10004;
+                td(data-label='WSL 2') &#10008;
+          
+          h3#wsl2-downside Downside of WSL 2
+          p One downside of WSL 2 that the original WSL did not suffer from is that, unless you only use the Linux file system, you will notice a slower performance when accessing Windows files from Linux and vice versa. This is a result of the architectural changes introduced in WSL 2, specifically, due to the NTFS file system support exposed by the Windows host via the 9P network protocol.
+
+          h2#installing-wsl2 Installing WSL 2
+          p Before installing any Linux distributions on Windows, you must first enable the #[i Windows Subsystem for Linux] optional feature.
+          ol
+            li Open Command Prompt or Powershell with administrator privileges and run the command:
+              pre.cmd #[span.ch-kw3 dism] /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+            li Next, you will need to enable #[i Virtual Machine Platform] optional feature:
+              pre.cmd #[span.ch-kw3 dism] /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+          
+          p Download the latest WSL 2 #[a(target='_blank' href='https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi') Linux kernel update package] for 64-bit machines and run the installer.
+          ol
+            li You will be prompted to elevate the installer. Select #[strong Yes] to approve the installation.
+            li Once the Linux kernel update package is installed, set the default WSL version to WSL version 2 by running the command:
+              pre.cmd #[span.ch-kw3 wsl] --set-default-version 2
+          p That is it! WSL is now installed on Windows and ready to be used. The next step to choose a Linux distro to use through WSL.
+          
+          h3#install-wsl-distro Install a Linux distro
+          ol
+            li Launch #[a(href='https://aka.ms/wslstore') Microsoft Store] and choose your preferred linux distribution to install.
+              img(onmouseover='handleImageHover(this)' src='/static/images/short-guides/ms-store/store_linux_distros.png')
+            li From the distribution's page, press the #[strong Get] button.
+              img(onmouseover='handleImageHover(this)' src='/static/images/short-guides/ms-store/store_debian_page.png')
+          p Once installed, launch the distribution from you computer and create a local Linux user account account as prompted.
+      
+      // BEGIN ARTICLE TOC
+      include /includes/toc.pug
+      // END ARTICLE TOC
+    script(src='/static/js/app.js')
+  

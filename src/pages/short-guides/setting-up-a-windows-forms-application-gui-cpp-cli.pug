@@ -1,0 +1,82 @@
+doctype html
+html(lang='en')
+  head
+    - var docTitle = 'Setting up a Windows Forms application GUI in C++/CLI'
+    title #{docTitle} - VFU Support
+    include /includes/head.pug
+  body
+    // BEGIN SIDEBAR
+    .sidebar.scrollbars
+      include /includes/nav.pug
+    // END SIDEBAR
+    main
+      article
+        .breadcrumb-container
+          ul.breadcrumb
+            li #[a(href='/index.html') VFU Support]
+            li #[a(href='/pages/short-guides.html') Short guides on a variety of topics]
+            li #[a(href='/pages/short-guides/guides-for-visual-studio.html') Guides for Visual Studio]
+            li #[a(href='/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html') #{docTitle}]
+        .brief-intro
+          h1 #{docTitle} #[span.readingTime]
+          p If you are playing with C++/CLI, you are probably already familiar with the C# or VB.NET way of working with WinForms, so there is nothing to be afraid of in CLI &mdash; it is just a bit of pain to set up at first.
+        .main-body
+          .attention-box.info
+            // .warning, .info, .success
+            p #[strong Notes to bear in mind:]
+            ul
+              li This guide applies to Visual Studio 2017 and up. Behaviour may be different on earlier versions of the software.
+              li C++/CLI was invented for the purpose of bridging native code to .NET. It is not meant to be an alternative or replacement for C#/VB. That is probably why Microsoft intentionally did not make it easy to set up WinForms for it.
+
+          h2#setting-up-the-project Setting up the project
+          p Assuming that you have C++/CLI component installed, fire up Visual Studio and create an #[strong empty CLR project]. Once the project is created, you need to let Visual Studio know what type of project (WinForms in this case) this is, as well as set an entry point for the application.
+          p Open the project's Properties dialog (#[kbd Alt] #[kbd Enter]) and select #[strong All Platforms] from the Platform combo box. After that, you need to:
+          
+          section
+            h3#define-the-project-type Define the project type
+            ol
+              li In the tree-view control on the left side, navigate to #[code Configuration Properties &gt;&gt; Linker &gt;&gt; System].
+              li Select the #[i SubSystem] setting and choose "#[strong Windows (/SUBSYSTEM:WINDOWS)]" from the drop-down list.
+          section
+            h3#set-the-program-entry-point Set the program entry point
+            ol
+              li Navigate to #[code Configuration Properties &gt;&gt; Linker &gt;&gt; Advanced].
+              li Select the #[i Entry Point] setting and type "#[b Main]".
+
+          p That is it with the Properties dialog. Press "Apply" and close it.
+          
+          h2#creating-the-form Creating the form
+          p This is both the fun and annoying part of the process.
+          ol
+            li Open the Add New Item dialog (#[kbd Ctrl] #[kbd Shift] #[kbd A]) and select #[i UI] from the tree-view on the left side.
+            li Select #[i Windows Form]; name it whatever you want then press "Add".
+
+          p You will be greeted with an error &mdash; HRESULT: 0x8000000A. Remember when I said there's an annoying part to this? Well, according to a Microsoft employee on the Visual Studio development team, #[a(target='_blank' href='https://developercommunity.visualstudio.com/comments/346208/view.html') this error is by design]. However, the fix is rather easy:
+          ol
+            li Close the tab showing the error.
+            li Open the Add New Item dialog (#[kbd Ctrl] #[kbd Shift] #[kbd A]) and select #[i C++ File (.cpp)]. Name it (it can be anything, but preferably, the name of your project) and press "Add".
+            li In your new empty source file, paste the following code:
+              pre.
+                #[span.ch-comment // Change 'ProjectName' and 'FormName' to your correct project and form names]
+
+                #[span.ch-preprocessor #include] #[span.ch-string "FormName.h"]
+
+                #[span.ch-kw1 using namespace] ProjectName;
+
+                #[span.ch-comment /// &lt;summary&gt;]
+                #[span.ch-comment /// The main entry point for the application.]
+                #[span.ch-comment /// &lt;/summary&gt;]
+                [STAThread]
+                #[span.ch-kw1 void] Main()
+                {
+                    #[span.ch-kw3 Application]::EnableVisualStyles();
+                    #[span.ch-kw3 Application]::SetCompatibleTextRenderingDefault(#[span.ch-kw1 false]);
+                    #[span.ch-kw3 Application]::Run(#[span.ch-kw1 gcnew] ProjectName::FormName);
+                }
+            li Back to the Solution Explorer panel, right-click on the project then select #[i Unload Project]. Now repeat the step but select #[i Reload Project].
+          p Voila! Your form should now be seen in all of its glory. You can use it and add controls to it like any other WinForms GUI in the .NET family.
+      // BEGIN ARTICLE TOC
+      include /includes/toc.pug
+      // END ARTICLE TOC
+    script(src='/static/js/app.js')
+  

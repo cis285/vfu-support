@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+  head
+    - var docTitle = 'Guides for Visual Studio'
+    title #{docTitle} - VFU Support
+    include /includes/head.pug
+  body
+    // BEGIN SIDEBAR
+    .sidebar.scrollbars
+      include /includes/nav.pug
+    // END SIDEBAR
+    main
+      article
+        .breadcrumb-container
+          ul.breadcrumb
+            li #[a(href='/index.html') VFU Support]
+            li #[a(href='/pages/short-guides.html') Short guides on a variety of topics]
+            li #[a(href='/pages/guides-for-visual-studio') #{docTitle}]
+        .brief-intro
+          h1 #{docTitle}
+          p Guides covering topics specific to Microsoft Visual Studio and its software development environment.
+        .main-body
+          h2#subtopics Subtopics
+          .subtopic-brief-info
+            section
+              h4 #[a.arrow(href='/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html') Adding components to an existing Visual Studio installation]
+              p Straightforward guide on adding and configuring workload or individual components for an existing Visual Studio installation.
+            section
+              h4 #[a.arrow(href='/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html') Setting up a Windows Forms application GUI in C++/CLI]
+              p If you are playing with C++/CLI, you are probably already familiar with the C# or VB.NET way of working with WinForms, so there is nothing to be afraid of in CLI &mdash; it is just a bit of pain to set up at first.
+
+      // BEGIN ARTICLE TOC
+      include /includes/toc.pug
+      // END ARTICLE TOC
+    script(src='/static/js/app.js')
