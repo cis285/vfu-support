@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home - VFU Support</title>
+    <title>Adding components to an existing Visual Studio Installation - VFU Support</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/style.css">
@@ -63,17 +63,58 @@
         <div class="breadcrumb-container">
           <ul class="breadcrumb">
             <li><a href="/index.html">VFU Support</a></li>
+            <li><a href="/pages/short-guides.html">Short guides on a variety of topics</a></li>
+            <li><a href="/pages/short-guides/guides-for-visual-studio.html">Guides for Visual Studio</a></li>
+            <li><a href="/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html">Adding components to an existing Visual Studio Installation</a></li>
           </ul>
         </div>
         <div class="brief-intro">
-          <h1>VFU Support</h1>
-          <p>Guides and help documents covering a wide selection of topics that are aimed at both developers and regular computer users alike.</p>
+          <h1>Adding components to an existing Visual Studio Installation <span class="readingTime"></span></h1>
+          <p>Straightforward guide on adding and configuring workload or individual components for an existing Visual Studio installation.</p>
         </div>
         <div class="main-body">
-          <div class="sidebar-topic-toc">
-            <h2 id="toc">Table of Contents</h2>
-            <ol></ol>
+          <div class="attention-box info">
+            <p><strong>Notes to bear in mind:</strong></p>
+            <ul>
+              <li>This guide applies to Visual Studio 2019 only. It may or may not be compatible with earlier versions of the installer.</li>
+              <li>A Windows user account with administrator permissions will be required in order to modify the Visual Studio installation.</li>
+            </ul>
           </div>
+          <h2 id="setting-up-the-project">Launch the installer</h2>
+          <ol>
+            <li>Open the Windows Start menu and search for Visual Studio Installer by typing <code>vs_installer</code>. If that does not return a result, you can also find the executable in its installation directory at <code>C:\Program Files (x86)\Microsoft Visual Studio\Installer\</code> and launch it.
+              <div class="attention-box warning">
+                <p><strong>Before proceeding further:</strong> If the installer prompts you to update it, it is best to do so before applying any modification to the installation.</p>
+              </div>
+            </li>
+            <li>In the installer, look for the Visual Studio edition you have installed and, from the <i>More</i> dropdown button, choose <strong>Modify</strong>. <img onmouseover="handleImageHover(this)" src="/static/images/short-guides/visual-studio/vs_installer_01.png"></li>
+          </ol>
+          <h2 id="modify-workloads">Modify workloads, individual components, and language packs</h2>
+          <p>The installer has a tabbed interface that offers the ability to make three types of installation modifications: <strong>workloads</strong>, <strong>individual components</strong>, and <strong>language packs</strong>.</p><img onmouseover="handleImageHover(this)" src="/static/images/short-guides/visual-studio/vs_installer_02.png">
+          <h3 id="workloads">Workloads</h3>
+          <p>Workloads are simply a bundle of components that work together to provide a specific feature. For example, selecting the <i>Linux development with C++</i> workload would install the core C++ features along with extra components specifically targeting the Linux environment.</p>
+          <h3 id="individual-components">Individual components</h3>
+          <p>Individual components &mdash;as the name suggests&mdash; allow you to explicitly select only the components that you want to install, giving you the maximum control over the installation. However, keep in mind that some features may not work if prerequisite components are not also selected for installation.</p>
+          <h3 id="language-packs">Language packs</h3>
+          <p>By default, Visual Studio is only installed in the language of the operating system. However you may install additional language packs through the installer. Visual Studio 2019 is offered in the following languages:</p>
+          <ul class="col-3">
+            <li>Chinese (Simplified)</li>
+            <li>Chinese (Traditional)</li>
+            <li>Czech</li>
+            <li>English</li>
+            <li>German</li>
+            <li>Italian</li>
+            <li>Japanese</li>
+            <li>Korean</li>
+            <li>Polish</li>
+            <li>Portugese (Brazil)</li>
+            <li>Russian</li>
+            <li>Spanish</li>
+            <li>Turkish</li>
+          </ul>
+          <h3 id="apply-modifications">Apply modifications</h3>
+          <p>Modifications can be applied in one of two methods: parallel mode where downloading and installing occurs at the same time, or by downloading first then installing. The latter is designed to work best if the Internet connection is slow.</p><img src="/static/images/short-guides/visual-studio/vs_installer_03.png">
+          <p>Once you have completed selecting the components that you want to install, you will need to apply the them by pressing the <strong>Modify</strong> button on the bottom-right corner of the user interface.</p>
         </div>
       </article>
       <!-- BEGIN ARTICLE TOC-->
@@ -102,9 +143,5 @@
       <!-- END ARTICLE TOC-->
     </main>
     <script src="/static/js/app.js"></script>
-    <script>
-      expandSidebarCategory(0);
-      genSidebarCategoryToc(true);
-    </script>
   </body>
 </html>

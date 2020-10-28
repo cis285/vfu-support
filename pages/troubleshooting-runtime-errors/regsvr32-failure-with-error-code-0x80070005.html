@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home - VFU Support</title>
+    <title>RegSvr32 failure with error code 0x80070005 - VFU Support</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/style.css">
@@ -63,17 +63,30 @@
         <div class="breadcrumb-container">
           <ul class="breadcrumb">
             <li><a href="/index.html">VFU Support</a></li>
+            <li><a href="/pages/troubleshooting-runtime-errors.html">Troubleshooting runtime errors</a></li>
+            <li><a href="/pages/troubleshooting-runtime-errors/regsvr32-failure-with-error-code-0x80070005.html">RegSvr32 failure with error code 0x80070005</a></li>
           </ul>
         </div>
         <div class="brief-intro">
-          <h1>VFU Support</h1>
-          <p>Guides and help documents covering a wide selection of topics that are aimed at both developers and regular computer users alike.</p>
+          <h1>RegSvr32 failure with error code 0x80070005 <span class="readingTime"></span></h1>
+          <p>Runtime error thrown by RegSvr32 while attempting to register or unregister an ActiveX control (OCX) or a dynamic-link library (DLL).</p>
         </div>
         <div class="main-body">
-          <div class="sidebar-topic-toc">
-            <h2 id="toc">Table of Contents</h2>
-            <ol></ol>
-          </div>
+          <h2 id="background-on-regsvr32">Background on RegSvr32</h2>
+          <p>RegSvr32, also known as <i>Register Server</i>, is a command-line utility that resides in <code>%windir%\System32\</code> for the 64-bit version and <code>%windir%\SysWoW64\</code> for the 32-bit version. The utility is typically used for registering or unregistering OLE/COM components in Windows Registry.</p>
+          <p>This utility can be either used manually through Command Prompt or PowerShell, or automatically run through a third-party program or script that internally calls it to perform a task.</p>
+          <h2 id="symptoms">Symptoms</h2>
+          <p>The most common symptom occurs when you manually attempt to register or unregister a COM component through a CLI command such as:</p>
+          <pre class="cmd"><span class="ch-kw3">regsvr32</span> file.dll</pre>
+          <P>And the utility outputs a runtime error with code <strong>0x80070005</strong>.</P><img onmouseover="handleImageHover(this)" src="/static/images/troubleshooting-runtime-errors/regsvr32_fail_to_register.png">
+          <h2 id="cause">Cause</h2>
+          <p>The cause of the error is insufficient access privileges to use the utility for registration or unregistration. RegSvr32 internally calls two operating system functions defined in <code>olectl.h</code>:</p>
+          <pre><span class="ch-kw2">HRESULT</span> DllRegisterServer();
+<span class="ch-kw2">HRESULT</span> DllUnregisterServer();</pre>
+          <p>These two functions essentially add or remove the CLSID of the object to be registered or unregistered in Windows Registry at <code>HKCR\CLSID\</code>, and that operation requires sufficient writing privileges in order to modify Registry entries.</p>
+          <h2 id="resolution">Resolution</h2>
+          <p>The utility must run with elevated permissions in order to successfully write to the Registry.</p>
+          <p>If you are running the utility manually through a console interface, make sure you run the host as administrator; otherwise, ensure that the program executing the utility is running as administrator.  </p>
         </div>
       </article>
       <!-- BEGIN ARTICLE TOC-->
@@ -102,9 +115,5 @@
       <!-- END ARTICLE TOC-->
     </main>
     <script src="/static/js/app.js"></script>
-    <script>
-      expandSidebarCategory(0);
-      genSidebarCategoryToc(true);
-    </script>
   </body>
 </html>

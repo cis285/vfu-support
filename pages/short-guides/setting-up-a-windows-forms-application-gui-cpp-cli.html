@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home - VFU Support</title>
+    <title>Setting up a Windows Forms application GUI in C++/CLI - VFU Support</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/style.css">
@@ -63,17 +63,73 @@
         <div class="breadcrumb-container">
           <ul class="breadcrumb">
             <li><a href="/index.html">VFU Support</a></li>
+            <li><a href="/pages/short-guides.html">Short guides on a variety of topics</a></li>
+            <li><a href="/pages/short-guides/guides-for-visual-studio.html">Guides for Visual Studio</a></li>
+            <li><a href="/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html">Setting up a Windows Forms application GUI in C++/CLI</a></li>
           </ul>
         </div>
         <div class="brief-intro">
-          <h1>VFU Support</h1>
-          <p>Guides and help documents covering a wide selection of topics that are aimed at both developers and regular computer users alike.</p>
+          <h1>Setting up a Windows Forms application GUI in C++/CLI <span class="readingTime"></span></h1>
+          <p>If you are playing with C++/CLI, you are probably already familiar with the C# or VB.NET way of working with WinForms, so there is nothing to be afraid of in CLI &mdash; it is just a bit of pain to set up at first.</p>
         </div>
         <div class="main-body">
-          <div class="sidebar-topic-toc">
-            <h2 id="toc">Table of Contents</h2>
-            <ol></ol>
+          <div class="attention-box info">
+            <!-- .warning, .info, .success-->
+            <p><strong>Notes to bear in mind:</strong></p>
+            <ul>
+              <li>This guide applies to Visual Studio 2017 and up. Behaviour may be different on earlier versions of the software.</li>
+              <li>C++/CLI was invented for the purpose of bridging native code to .NET. It is not meant to be an alternative or replacement for C#/VB. That is probably why Microsoft intentionally did not make it easy to set up WinForms for it.</li>
+            </ul>
           </div>
+          <h2 id="setting-up-the-project">Setting up the project</h2>
+          <p>Assuming that you have C++/CLI component installed, fire up Visual Studio and create an <strong>empty CLR project</strong>. Once the project is created, you need to let Visual Studio know what type of project (WinForms in this case) this is, as well as set an entry point for the application.</p>
+          <p>Open the project's Properties dialog (<kbd>Alt</kbd> <kbd>Enter</kbd>) and select <strong>All Platforms</strong> from the Platform combo box. After that, you need to:</p>
+          <section>
+            <h3 id="define-the-project-type">Define the project type</h3>
+            <ol>
+              <li>In the tree-view control on the left side, navigate to <code>Configuration Properties &gt;&gt; Linker &gt;&gt; System</code>.</li>
+              <li>Select the <i>SubSystem</i> setting and choose "<strong>Windows (/SUBSYSTEM:WINDOWS)</strong>" from the drop-down list.</li>
+            </ol>
+          </section>
+          <section>
+            <h3 id="set-the-program-entry-point">Set the program entry point</h3>
+            <ol>
+              <li>Navigate to <code>Configuration Properties &gt;&gt; Linker &gt;&gt; Advanced</code>.</li>
+              <li>Select the <i>Entry Point</i> setting and type "<b>Main</b>".</li>
+            </ol>
+          </section>
+          <p>That is it with the Properties dialog. Press "Apply" and close it.</p>
+          <h2 id="creating-the-form">Creating the form</h2>
+          <p>This is both the fun and annoying part of the process.</p>
+          <ol>
+            <li>Open the Add New Item dialog (<kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>A</kbd>) and select <i>UI</i> from the tree-view on the left side.</li>
+            <li>Select <i>Windows Form</i>; name it whatever you want then press "Add".</li>
+          </ol>
+          <p>You will be greeted with an error &mdash; HRESULT: 0x8000000A. Remember when I said there's an annoying part to this? Well, according to a Microsoft employee on the Visual Studio development team, <a target="_blank" href="https://developercommunity.visualstudio.com/comments/346208/view.html">this error is by design</a>. However, the fix is rather easy:</p>
+          <ol>
+            <li>Close the tab showing the error.</li>
+            <li>Open the Add New Item dialog (<kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>A</kbd>) and select <i>C++ File (.cpp)</i>. Name it (it can be anything, but preferably, the name of your project) and press "Add".</li>
+            <li>In your new empty source file, paste the following code:
+              <pre><span class="ch-comment">// Change 'ProjectName' and 'FormName' to your correct project and form names</span>
+
+<span class="ch-preprocessor">#include</span> <span class="ch-string">"FormName.h"</span>
+
+<span class="ch-kw1">using namespace</span> ProjectName;
+
+<span class="ch-comment">/// &lt;summary&gt;</span>
+<span class="ch-comment">/// The main entry point for the application.</span>
+<span class="ch-comment">/// &lt;/summary&gt;</span>
+[STAThread]
+<span class="ch-kw1">void</span> Main()
+{
+    <span class="ch-kw3">Application</span>::EnableVisualStyles();
+    <span class="ch-kw3">Application</span>::SetCompatibleTextRenderingDefault(<span class="ch-kw1">false</span>);
+    <span class="ch-kw3">Application</span>::Run(<span class="ch-kw1">gcnew</span> ProjectName::FormName);
+}</pre>
+            </li>
+            <li>Back to the Solution Explorer panel, right-click on the project then select <i>Unload Project</i>. Now repeat the step but select <i>Reload Project</i>.</li>
+          </ol>
+          <p>Voila! Your form should now be seen in all of its glory. You can use it and add controls to it like any other WinForms GUI in the .NET family.</p>
         </div>
       </article>
       <!-- BEGIN ARTICLE TOC-->
@@ -102,9 +158,5 @@
       <!-- END ARTICLE TOC-->
     </main>
     <script src="/static/js/app.js"></script>
-    <script>
-      expandSidebarCategory(0);
-      genSidebarCategoryToc(true);
-    </script>
   </body>
 </html>

@@ -9,11 +9,15 @@ function toggleTheme()
     {
         setTheme('theme-dark');
         createStylesheetElement('/static/css/theme-dark.css');
+        
+        document.getElementById('themeToggle').checked = true;
     }
     else
     {
         setTheme('theme-default');
         document.head.children[document.head.children.length - 1].outerHTML = "";
+        
+        document.getElementById('themeToggle').checked = false;
     }
 }
 
@@ -32,7 +36,7 @@ function createStylesheetElement(href)
     var sheet = document.createElement('link');
     sheet.rel = 'stylesheet';
     sheet.href = href;
-    document.getElementsByTagName('head')[0].appendChild(sheet);
+    document.head.appendChild(sheet);
 }
 
 async function fetchData(url, isJson)
@@ -85,6 +89,13 @@ function setActiveSidebarArticle()
         if (!isScrolledIntoView(aTags[i]))
             aTags[i].scrollIntoView();
     }
+}
+
+function expandSidebarCategory(index)
+{
+    var elm = document.getElementsByClassName('expando details')[index];
+    if (elm)
+        elm.setAttribute('open', '');
 }
 
 function getArticlesElement()
@@ -259,17 +270,25 @@ function genArticleBodyToc()
     });
 }
 
-function genSidebarCategoryToc()
+function genSidebarCategoryToc(onlyCategoryNames)
 {
     var tocList = document.getElementsByClassName('sidebar-topic-toc')[0].children[1];
     
-    var q = document.querySelector('ul.sidebar-articles')
-                    .querySelector('li.active')
-                    .querySelectorAll('a');
+    var q, i;
+    if (onlyCategoryNames)
+    {
+        q = document.querySelectorAll('div.sidebar-category-name a');
+        i = 0;
+    }
+    else
+    {
+        q = document.querySelectorAll('ul.sidebar-articles .active a');
+        i = 1; // Skip category names
+    }
 
     var subListHead = document.createElement('ol');
     
-    for (var i = 1; i < q.length; i++)
+    for (i; i < q.length; i++)
     {
         if (q[i].parentNode.classList.contains('sidebar-subtopic'))
         {
@@ -297,7 +316,7 @@ function getReadingTime(elmQuery)
     for (var i = 0; i < query.length; i++)
         wordCount += query[i].innerText.match(/\w+/g).length;
 
-    const avgWpm = 130;
+    const avgWpm = 100;
     
     var wordsPerSec = avgWpm / 60;
     var totalReadingTimeSeconds = wordCount / wordsPerSec;
@@ -332,7 +351,10 @@ function getReadingTime(elmQuery)
 
     var elm = document.getElementsByClassName('readingTime')[0];
     if (elm)
+    {
         elm.innerText = format;
+        elm.style.display = 'block';
+    }
 }
 
 function handleImageHover(elm)
@@ -386,7 +408,7 @@ function hideImageOverlay(elm)
     else
     {
         if (theme === 'theme-dark')
-            createStylesheetElement('/static/css/theme-dark.css');
+            document.getElementById('themeToggle').checked = true;
     }
 
     fetchData('/static/articles.json', true).then(data =>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home - VFU Support</title>
+    <title>Program failure to start with error 0xc000007b - VFU Support</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/style.css">
@@ -63,17 +63,22 @@
         <div class="breadcrumb-container">
           <ul class="breadcrumb">
             <li><a href="/index.html">VFU Support</a></li>
+            <li><a href="/pages/troubleshooting-runtime-errors.html">Troubleshooting runtime errors</a></li>
+            <li><a href="/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html">Program failure to start with error 0xc000007b</a></li>
           </ul>
         </div>
         <div class="brief-intro">
-          <h1>VFU Support</h1>
-          <p>Guides and help documents covering a wide selection of topics that are aimed at both developers and regular computer users alike.</p>
+          <h1>Program failure to start with error 0xc000007b <span class="readingTime"></span></h1>
+          <p>Runtime error thrown by a program directly after execution.</p>
         </div>
         <div class="main-body">
-          <div class="sidebar-topic-toc">
-            <h2 id="toc">Table of Contents</h2>
-            <ol></ol>
-          </div>
+          <h2 id="symptoms">Symptoms</h2>
+          <p>Starting a program, typically third-party, will cause the executing program to output a runtime error with code <strong>0xc000007b</strong> then exit.</p><img onmouseover="handleImageHover(this)" src="/static/images/troubleshooting-runtime-errors/program_fail_to_start_0xc000007b.png">
+          <h2 id="cause">Cause</h2>
+          <p>The error code is defined as <code>STATUS_INVALID_IMAGE_FORMAT</code> in the operating system's NTSTATUS header file <code>ntstatus.h</code>.</p>
+          <p>The most likely cause of the error is a program that is not compatible with the architecture of your operating system or that dependencies are missing.</p>
+          <h2 id="resolution">Resolution</h2>
+          <p>This error message only provides a general idea on what the culprit behind it might be. There is no definite resolution for it. However, you can narrow it down by using <a target="_blank" href="https://www.dependencywalker.com/">Dependency Walker</a> to check for incompatible architecture or missing dependencies.</p>
         </div>
       </article>
       <!-- BEGIN ARTICLE TOC-->
@@ -102,9 +107,5 @@
       <!-- END ARTICLE TOC-->
     </main>
     <script src="/static/js/app.js"></script>
-    <script>
-      expandSidebarCategory(0);
-      genSidebarCategoryToc(true);
-    </script>
   </body>
 </html>

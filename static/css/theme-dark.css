@@ -21,10 +21,16 @@ pre
 {
     border-color: #2E3339;
     border-radius: 0;
+    color: #B9B9B9;
     background-color: #181C20;
 }
 
+pre.cmd:before,
+pre.shell:before { color: #464E57; }
+
 pre::-webkit-scrollbar { background-color: #181C20; }
+pre::-webkit-scrollbar-thumb { background-color: #2E3239; }
+pre::-webkit-scrollbar-thumb:active { background-color: #282D33; }
 
 pre b { color: #607D8b; }
 
@@ -121,7 +127,7 @@ input.sidebar-search::placeholder { color: #4D5357; }
 
 .autocomplete-list div.active > b { color: #8AA3B3; }
 
-ul.breadcrumb li:last-child a { color: #A6A6A6; }
+ul.breadcrumb li:last-child a { color: #9EA5AE; }
 
 article .brief-intro { border-bottom: 1px solid #2E3339; }
 
@@ -166,6 +172,19 @@ article .brief-intro { border-bottom: 1px solid #2E3339; }
     color: #6C9176;
     background-color: #121C15;
 }
+
+.toggle-switch-container .slider { background-color: #2E3339; }
+.toggle-switch-container .slider:before { background-color: #121518; }
+.theme-toggle-container .icon svg { fill: currentColor; }
+
+.ch-kw1          { color: #617E8B; font-weight: normal; }
+.ch-kw2          { color: #875286; }
+.ch-kw3          { color: #8D5777; }
+.ch-kw4          { color: #966A39; }
+.ch-preprocessor { color: #948774; }
+.ch-comment      { color: #4D685B; font-style: italic; }
+.ch-string       { color: #A48C8C; }
+.ch-num          { color: #50A14F; }
 
 @media(max-width: 768px)
 {

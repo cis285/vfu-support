@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Installing and setting up WSL 2 on Windows - VFU Support</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+      if (localStorage.getItem('theme') === 'theme-dark')
+      {
+          var sheet = document.createElement('link');
+          sheet.rel = 'stylesheet';
+          sheet.href = '/static/css/theme-dark.css';
+          document.head.appendChild(sheet);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- BEGIN SIDEBAR-->
+    <div class="sidebar scrollbars">
+      <div class="autocomplete">
+        <input class="sidebar-search" type="text" placeholder="Filter by topic title" autocomplete="off">
+      </div>
+      <ul class="sidebar-articles">
+        <li class="sidebar-category">
+          <details class="expando details">
+            <summary>
+              <div class="sidebar-category-name"><a href="/pages/short-guides.html">Short guides on a variety of topics</a>
+                <div class="collapse-toggle"></div>
+              </div>
+            </summary>
+            <ul>
+              <li class="sidebar-topic"><a href="/pages/short-guides/guides-for-visual-studio.html">Guides for Visual Studio</a>
+                <ul>
+                  <li class="sidebar-subtopic"><a href="/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html">Adding components to an existing Visual Studio Installation</a></li>
+                  <li class="sidebar-subtopic"><a href="/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html">Setting up a Windows Forms application GUI in C++/CLI</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li class="sidebar-topic"><a href="/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html">Installing and setting up WSL 2 on Windows</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="sidebar-category">
+          <details class="expando details">
+            <summary>
+              <div class="sidebar-category-name"><a href="/pages/troubleshooting-runtime-errors.html">Troubleshooting runtime errors</a>
+                <div class="collapse-toggle"></div>
+              </div>
+            </summary>
+            <ul>
+              <li class="sidebar-topic"><a href="/pages/troubleshooting-runtime-errors/regsvr32-failure-with-error-code-0x80070005.html">RegSvr32 failure with error code 0x80070005</a></li>
+              <li class="sidebar-topic"><a href="/pages/troubleshooting-runtime-errors/program-failure-to-start-with-error-0xc000007b.html">Program failure to start with error 0xc000007b</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+    <!-- END SIDEBAR-->
+    <main>
+      <article>
+        <div class="breadcrumb-container">
+          <ul class="breadcrumb">
+            <li><a href="/index.html">VFU Support</a></li>
+            <li><a href="/pages/short-guides.html">Short guides on a variety of topics</a></li>
+            <li><a href="/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html">Installing and setting up WSL 2 on Windows</a></li>
+          </ul>
+        </div>
+        <div class="brief-intro">
+          <h1>Installing and setting up WSL 2 on Windows <span class="readingTime"></span></h1>
+          <p>Run a GNU/Linux environment on the Windows operating system without the overhead of a virtual machine or dual-boot configuration.</p>
+        </div>
+        <div class="main-body">
+          <h2 id="background-on-wsl">Background on Windows Subsystem for Linux (WSL)</h2>
+          <p>WSL is a compatibility layer that allows developers run a GNU/Linux environment &mdash;including most command-line tools, utilities, and applications&mdash; directly on Windows, unmodified, and without the overhead of a traditional virtual machine or dual-boot configuration.</p>
+          <h2 id="wsl2">WSL version 2.0</h2>
+          <p>WSL 2 is the latest version of Windows Subsystem for Linux and a major upgrade over the original WSL. It powers the WSL architechture to run ELF64 Linux binaries on Windows with primary goals being increased file system performance, as well as adding full system call compatibility.</p>
+          <p>The overhauled architecture changes how these Linux binaries interact with Windows and your computer's hardware, but still provides the same user experience as in WSL 1 (the current widely available version).</p>
+          <p>Individual Linux distributions can be run with either the WSL 1 or WSL 2 architecture. Each distribution can be upgraded or downgraded at any time and you can run WSL 1 and WSL 2 distributions side by side. WSL 2 uses an entirely new architecture that benefits from running a real Linux kernel.</p>
+          <h3 id="wsl2-system-requirements">System requirements</h3>
+          <table class="type-c">
+            <thead>
+              <tr>
+                <th>Architechture</th>
+                <th>Minimum Version</th>
+                <th>Minimum Build</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Architechture">x64</td>
+                <td data-label="Minimum Version">1903</td>
+                <td data-label="Minimum Build">18362</td>
+              </tr>
+              <tr>
+                <td data-label="Architechture">ARM64</td>
+                <td data-label="Minimum Version">2004</td>
+                <td data-label="Minimum Build">19041</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Builds lower than 18362 do not support WSL 2. Use the <a href="https://www.microsoft.com/software-download/windows10">Windows Update Assistant</a> to update your version of Windows in order to use it.</p>
+          <h3 id="wsl-wsl2-comparison">Comparison between WSL and WSL 2</h3>
+          <table class="type-c">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>WSL</th>
+                <th>WSL 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Feature">Integration between Windows and Linux</td>
+                <td data-label="WSL">&#10004;</td>
+                <td data-label="WSL 2">&#10004;</td>
+              </tr>
+              <tr>
+                <td data-label="Feature">Fast boot times</td>
+                <td data-label="WSL">&#10004;</td>
+                <td data-label="WSL 2">&#10004;</td>
+              </tr>
+              <tr>
+                <td data-label="Feature">Managed VM</td>
+                <td data-label="WSL">&#10008;</td>
+                <td data-label="WSL 2">&#10004;</td>
+              </tr>
+              <tr>
+                <td data-label="Feature">Real Linux kernel</td>
+                <td data-label="WSL">&#10008;</td>
+                <td data-label="WSL 2">&#10004;</td>
+              </tr>
+              <tr>
+                <td data-label="Feature">Full system call compatibility</td>
+                <td data-label="WSL">&#10008;</td>
+                <td data-label="WSL 2">&#10004;</td>
+              </tr>
+              <tr>
+                <td data-label="Feature">Performance across OS file systems</td>
+                <td data-label="WSL">&#10004;</td>
+                <td data-label="WSL 2">&#10008;</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="wsl2-downside">Downside of WSL 2</h3>
+          <p>One downside of WSL 2 that the original WSL did not suffer from is that, unless you only use the Linux file system, you will notice a slower performance when accessing Windows files from Linux and vice versa. This is a result of the architectural changes introduced in WSL 2, specifically, due to the NTFS file system support exposed by the Windows host via the 9P network protocol.</p>
+          <h2 id="installing-wsl2">Installing WSL 2</h2>
+          <p>Before installing any Linux distributions on Windows, you must first enable the <i>Windows Subsystem for Linux</i> optional feature.</p>
+          <ol>
+            <li>Open Command Prompt or Powershell with administrator privileges and run the command:
+              <pre class="cmd"><span class="ch-kw3">dism</span> /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</pre>
+            </li>
+            <li>Next, you will need to enable <i>Virtual Machine Platform</i> optional feature:
+              <pre class="cmd"><span class="ch-kw3">dism</span> /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</pre>
+            </li>
+          </ol>
+          <p>Download the latest WSL 2 <a target="_blank" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">Linux kernel update package</a> for 64-bit machines and run the installer.</p>
+          <ol>
+            <li>You will be prompted to elevate the installer. Select <strong>Yes</strong> to approve the installation.</li>
+            <li>Once the Linux kernel update package is installed, set the default WSL version to WSL version 2 by running the command:
+              <pre class="cmd"><span class="ch-kw3">wsl</span> --set-default-version 2</pre>
+            </li>
+          </ol>
+          <p>That is it! WSL is now installed on Windows and ready to be used. The next step to choose a Linux distro to use through WSL.</p>
+          <h3 id="install-wsl-distro">Install a Linux distro</h3>
+          <ol>
+            <li>Launch <a href="https://aka.ms/wslstore">Microsoft Store</a> and choose your preferred linux distribution to install.<img onmouseover="handleImageHover(this)" src="/static/images/short-guides/ms-store/store_linux_distros.png"></li>
+            <li>From the distribution's page, press the <strong>Get</strong> button.<img onmouseover="handleImageHover(this)" src="/static/images/short-guides/ms-store/store_debian_page.png"></li>
+          </ol>
+          <p>Once installed, launch the distribution from you computer and create a local Linux user account account as prompted.</p>
+        </div>
+      </article>
+      <!-- BEGIN ARTICLE TOC-->
+      <div class="article-toc-container">
+        <div class="article-toc">
+          <div class="theme-toggle-container">
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                <path d="M13.996 8.441c.015-.072-.01-.146-.065-.194l-1.507-1.321 1.454-1.378c.053-.051.075-.126.058-.197-.018-.071-.072-.127-.143-.148l-1.935-.555.715-1.861c.026-.068.014-.145-.033-.202-.047-.057-.121-.084-.194-.073l-1.989.319-.162-1.984c-.006-.073-.051-.137-.118-.169-.067-.03-.146-.024-.207.018l-1.658 1.13L7.204.102C7.167.039 7.099 0 7.024 0s-.142.039-.179.102L5.689 2.081l-2-1.147c-.064-.037-.143-.037-.207 0-.065.036-.105.103-.105.176L3.372 3.1l-2.008-.163c-.073-.007-.145.027-.187.087-.042.06-.049.138-.017.204l.86 1.8-1.886.702c-.069.026-.119.086-.131.158-.012.073.016.146.073.192l1.558 1.262L.236 8.775c-.051.053-.07.128-.05.199.02.07.077.124.149.142l1.955.48-.641 1.887c-.024.069-.008.146.041.201s.124.08.196.065l1.975-.395.24 1.976c.009.073.056.135.124.164.068.029.146.019.206-.024l1.613-1.193 1.075 1.629c.038.058.104.094.175.094h.008c.074-.003.141-.044.175-.109l.939-1.706 1.702 1.066c.063.039.141.042.207.008s.108-.1.111-.173l.083-1.989 2 .242c.073.009.146-.022.191-.08.044-.058.054-.136.025-.203l-.788-1.832 1.912-.629c.069-.024.122-.082.137-.154zm-7.041 2.76c-2.357 0-4.267-1.897-4.267-4.237s1.911-4.237 4.267-4.237 4.267 1.897 4.267 4.237-1.911 4.237-4.267 4.237z"></path>
+                <circle cx="7" cy="7" r="3"></circle>
+              </svg>
+            </div>
+            <div class="toggle-switch-container">
+              <label class="switch">
+                <input id="themeToggle" type="checkbox" onclick="toggleTheme()"><span class="slider"></span>
+              </label>
+            </div>
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                <path d="M7.362 14C3.302 14 0 10.694 0 6.63 0 3.816 1.565 1.287 4.085.031c.113-.056.25-.034.339.055.089.089.112.226.056.339-.46.935-.693 1.941-.693 2.987 0 3.739 3.038 6.78 6.772 6.78 1.058 0 2.071-.239 3.015-.709.113-.056.25-.035.339.055.09.09.112.226.056.339C12.722 12.42 10.189 14 7.362 14z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END ARTICLE TOC-->
+    </main>
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>

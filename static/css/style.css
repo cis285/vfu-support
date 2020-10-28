@@ -74,6 +74,21 @@ a
 
 a:hover { text-decoration: underline; }
 
+a.arrow::after
+{
+    content: '\279E';
+    display: inline-block;
+    padding-left: 4px;
+    opacity: 0;
+    transition: .2s;
+}
+
+a.arrow:hover::after
+{
+    opacity: 1;
+    transform: translateX(4px);
+}
+
 ul
 {
     margin-top: 0;
@@ -99,7 +114,11 @@ hr
     background-color: #E3E7EA;
 }
 
-pre, code { white-space: pre; }
+pre, code
+{
+    font-family: Consolas, Menlo, Monaco, "Lucida Console", monospace;
+    white-space: pre;
+}
 
 pre
 {
@@ -109,24 +128,34 @@ pre
     overflow: auto;
     white-space: pre;
     line-height: 1.45;
-    border: 1px solid transparent;
+    border: 1px solid #E3E7EA;
     border-radius: 2px;
     background-color: #F6F8FA;
+
+    -webkit-overflow-scrolling: touch;
 }
 
+pre.cmd:before,
+pre.shell:before { color: #C8CFD5; }
+
+pre.cmd:before { content: "> "; }
+pre.shell:before { content: "$ "; }
+
 pre::-webkit-scrollbar { background-color: #F6F8FA; }
+pre::-webkit-scrollbar-thumb { background-color: #E3E7EA; }
+pre::-webkit-scrollbar-thumb:active { background-color: #DEE3E7; }
 
 code
 {
-    font-family: Consolas, Menlo, Monaco, "DejaVu Sans Mono", monospace, serif;
     font-size: 90%;
-    font-weight: 600;
     padding: 2px 6px;
     white-space: nowrap;
     border-radius: 2px;
     color: #3C3C3C;
     background-color: #F0F0F0;
 }
+
+code.bold { font-weight: 600; }
 
 kbd
 {
@@ -160,8 +189,15 @@ table
     text-align: center;
 }
 
+table.type-c
+{
+    table-layout: auto;
+    width: 100%;  
+}
+
 table.no-col-border { border: 1px solid #E3E7EA; }
 
+table.type-c,
 table.align-left { text-align: left; }
 
 table tr:nth-of-type(odd) { background: #FAFAFA; }
@@ -186,6 +222,9 @@ table.no-col-border td
     border: none;
     border-top: 1px solid #E3E7EA;
 }
+
+table.v-align-top th,
+table.v-align-top td { vertical-align: top; }
 
 blockquote
 {
@@ -551,7 +590,7 @@ article .brief-intro h1
 
 article .brief-intro h1 span.readingTime
 {
-    display: block;
+    display: none;
     font-size: 40%;
     font-weight: normal;
     color: grey;
@@ -563,6 +602,10 @@ article .main-body
 {
     margin-top: 35px;
 }
+
+.main-body .subtopic-brief-info section a { text-decoration: none; }
+.main-body .subtopic-brief-info section h4 { margin-bottom: 10px; }
+.main-body .subtopic-brief-info section + section { padding-top: 10px; }
 
 .main-body ul
 {
@@ -622,7 +665,7 @@ article .main-body
 {
     position: fixed;
     height: 100vh;
-    padding: 50px 45px 50px 40px;
+    padding: 68px 45px 50px 40px;
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -660,6 +703,8 @@ article .main-body
     counter-increment: item;
 }
 
+/* .sidebar-topic-toc a { text-decoration: none; } */
+
 /* ATTENTION BOX STYLING
 ------------------------------------------------------------------------------*/
 .attention-box 
@@ -687,7 +732,10 @@ article .main-body
 }
 
 .attention-box ul li,
-.attention-box ol li { margin-left: 45px; }
+.attention-box ol li { margin-left: 15px; }
+
+.attention-box p + ul li,
+.attention-box p + ol li { margin-left: 45px; }
 
 .attention-box p + ul,
 .attention-box p + ol
@@ -749,6 +797,101 @@ article .main-body
     height: auto;
 }
 
+
+/* THEME TOGGLE SWITCH
+------------------------------------------------------------------------------*/
+.theme-toggle-container
+{
+    float: left;
+    padding: 0;
+    padding-bottom: 20px;
+    width: 100%
+}
+
+.theme-toggle-container .icon
+{
+    width: 25px;
+    float: left;
+    margin-top: 2px;
+}
+
+.theme-toggle-container .icon svg { fill: #555; }
+
+.toggle-switch-container
+{
+    margin-top: 2px;
+    width: 57px;
+    float: left;
+}
+
+.toggle-switch-container .switch
+{
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 18px
+}
+
+.toggle-switch-container .switch input { display: none }
+.toggle-switch-container .switch input:checked + .slider:before { transform: translateX(27px); }
+
+.toggle-switch-container .slider
+{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    background-color: #E4E6E7;
+}
+
+.toggle-switch-container .slider:before
+{
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    left: 5px;
+    bottom: 4px;
+    border-radius: 50px;
+    background-color: #FFF;
+}
+
+/* YOUTUBE EMBED CONTAINER
+------------------------------------------------------------------------------*/
+.youtube-container
+{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+}
+
+.youtube-container iframe[src*=youtube]
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+/* CODE HIGHLIGHTING
+------------------------------------------------------------------------------*/
+.ch-kw1          { color: #222222; font-weight: bold; }
+.ch-kw2          { color: #A627A4; }
+.ch-kw3          { color: #008080; }
+.ch-kw4          { color: #966A39; }
+.ch-preprocessor { color: #B98568; }
+.ch-comment      { color: #A0A1A7; font-style: italic; }
+.ch-string       { color: #DD1144; }
+.ch-num          { color: #50A14F; }
+
+
 /* MEDIA QUERIES
 ------------------------------------------------------------------------------*/
 @media(max-width: 1200px)
@@ -764,13 +907,14 @@ article .main-body
         padding-left: 30px;
     }
 
-
     h1 .anchor, h2 .anchor, h3 .anchor,
     h4 .anchor, h5 .anchor, h6 .anchor 
     {
         margin-left: -27px;
         height: 20px;
     }
+
+    code { white-space: pre-wrap; }
 
     table.no-col-border { border: none; }
     table.no-col-border td { border: none; }
@@ -804,6 +948,20 @@ article .main-body
 
     table td:nth-of-type(even) { background-color: #FAFAFA; }
     table td:not(:last-child) { border-bottom: 1px solid #E3E7EA; }
+}
+
+@media(min-width: 768px)
+{
+    ul.col-2,
+    ul.col-3 { column-gap: 40px; }
+
+    ul.col-2 {  columns: 2; }
+    ul.col-3 {  columns: 3; }
+
+    table.type-c th:last-child,
+    table.type-c td:last-child,
+    table.type-c th:nth-last-child(2),
+    table.type-c td:nth-last-child(2) { text-align: center;}
 }
 
 @media(min-width: 1012px)
