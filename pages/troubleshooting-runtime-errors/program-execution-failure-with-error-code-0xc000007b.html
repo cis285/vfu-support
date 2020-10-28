@@ -32,7 +32,7 @@
             <ul>
               <li class="sidebar-topic"><a href="/vfu-support/pages/short-guides/guides-for-visual-studio.html">Guides for Visual Studio</a>
                 <ul>
-                  <li class="sidebar-subtopic"><a href="/vfu-support/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html">Adding components to an existing Visual Studio Installation</a></li>
+                  <li class="sidebar-subtopic"><a href="/vfu-support/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html">Adding components to an existing Visual Studio installation</a></li>
                   <li class="sidebar-subtopic"><a href="/vfu-support/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html">Setting up a Windows Forms application GUI in C++/CLI</a></li>
                 </ul>
               </li>
@@ -76,7 +76,7 @@
           <p>Starting a program, typically third-party, will cause the executing program to output a runtime error with code <strong>0xc000007b</strong> then exit.</p><img onmouseover="handleImageHover(this)" src="/vfu-support/static/images/troubleshooting-runtime-errors/program_fail_to_start_0xc000007b.png">
           <h2 id="cause">Cause</h2>
           <p>The error code is defined as <code>STATUS_INVALID_IMAGE_FORMAT</code> in the operating system's NTSTATUS header file <code>ntstatus.h</code>.</p>
-          <p>The most likely cause of the error is a program that is not compatible with the architecture of your operating system or that dependencies are missing.</p>
+          <p>The most likely cause of the error is a program that is not compatible with the architecture of your operating system or that dependencies the program relies on are missing.</p>
           <h2 id="resolution">Resolution</h2>
           <p>This error message only provides a general idea on what the culprit behind it might be. There is no definite resolution for it. However, you can narrow it down by using <a target="_blank" href="https://www.dependencywalker.com/">Dependency Walker</a> to check for incompatible architecture or missing dependencies.</p>
         </div>
