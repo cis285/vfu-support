@@ -126,13 +126,13 @@ pre
     max-height: 500px;
     font-size: 90%;
     overflow: auto;
+    overflow-wrap: normal;
     white-space: pre;
     line-height: 1.45;
     border: 1px solid #E3E7EA;
     border-radius: 2px;
     background-color: #F6F8FA;
 
-    -webkit-overflow-scrolling: touch;
 }
 
 pre.cmd:before,
