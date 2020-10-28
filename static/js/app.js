@@ -338,7 +338,7 @@ function getReadingTime(elmQuery)
         if (minute >= 10)
         {
             minute = minute.slice(0, (minute.indexOf(".")) + 2);
-            format = hour + "." + minute + " hours to read";
+            format = `${hour}.${minute} hours to read`;
         }
         else
             format = hour + ((hour > 1) ? " hours to read" : " hour to read");
