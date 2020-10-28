@@ -26,7 +26,7 @@ html(lang='en')
           
           h2#cause Cause
           p The error code is defined as #[code STATUS_INVALID_IMAGE_FORMAT] in the operating system's NTSTATUS header file #[code ntstatus.h].
-          p The most likely cause of the error is a program that is not compatible with the architecture of your operating system or that dependencies are missing.
+          p The most likely cause of the error is a program that is not compatible with the architecture of your operating system or that dependencies the program relies on are missing.
 
           h2#resolution Resolution
           p This error message only provides a general idea on what the culprit behind it might be. There is no definite resolution for it. However, you can narrow it down by using #[a(target='_blank' href='https://www.dependencywalker.com/') Dependency Walker] to check for incompatible architecture or missing dependencies.
