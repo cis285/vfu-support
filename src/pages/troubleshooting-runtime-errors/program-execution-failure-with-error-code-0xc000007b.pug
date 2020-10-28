@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+  head
+    - var docTitle = 'Program execution failure with error code 0xc000007b'
+    title #{docTitle} - VFU Support
+    include /includes/head.pug
+  body
+    // BEGIN SIDEBAR
+    .sidebar.scrollbars
+      include /includes/nav.pug
+    // END SIDEBAR
+    main
+      article
+        .breadcrumb-container
+          ul.breadcrumb
+            li #[a(href='/vfu-support/index.html') VFU Support]
+            li #[a(href='/vfu-support/pages/troubleshooting-runtime-errors.html') Troubleshooting runtime errors]
+            li #[a(href='/vfu-support/pages/troubleshooting-runtime-errors/program-execution-failure-with-error-code-0xc000007b.html') #{docTitle}]
+        .brief-intro
+          h1 #{docTitle} #[span.readingTime]
+          p Runtime error thrown by a program directly after execution.
+        .main-body
+          h2#symptoms Symptoms
+          p Starting a program, typically third-party, will cause the executing program to output a runtime error with code #[strong 0xc000007b] then exit.
+          img(onmouseover='handleImageHover(this)' src='/vfu-support/static/images/troubleshooting-runtime-errors/program_fail_to_start_0xc000007b.png') 
+          
+          h2#cause Cause
+          p The error code is defined as #[code STATUS_INVALID_IMAGE_FORMAT] in the operating system's NTSTATUS header file #[code ntstatus.h].
+          p The most likely cause of the error is a program that is not compatible with the architecture of your operating system or that dependencies are missing.
+
+          h2#resolution Resolution
+          p This error message only provides a general idea on what the culprit behind it might be. There is no definite resolution for it. However, you can narrow it down by using #[a(target='_blank' href='https://www.dependencywalker.com/') Dependency Walker] to check for incompatible architecture or missing dependencies.
+      // BEGIN ARTICLE TOC
+      include /includes/toc.pug
+      // END ARTICLE TOC
+    script(src='/vfu-support/static/js/app.js')
+  
