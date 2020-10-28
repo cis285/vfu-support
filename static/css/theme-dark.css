@@ -178,13 +178,13 @@ article .brief-intro { border-bottom: 1px solid #2E3339; }
 .theme-toggle-container .icon svg { fill: currentColor; }
 
 .ch-kw1          { color: #617E8B; font-weight: normal; }
-.ch-kw2          { color: #875286; }
+.ch-kw2          { color: #4D774E; }
 .ch-kw3          { color: #8D5777; }
 .ch-kw4          { color: #966A39; }
 .ch-preprocessor { color: #948774; }
 .ch-comment      { color: #4D685B; font-style: italic; }
 .ch-string       { color: #A48C8C; }
-.ch-num          { color: #50A14F; }
+.ch-num          { color: #724FA1; }
 
 @media(max-width: 768px)
 {
