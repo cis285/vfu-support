@@ -1,59 +1,27 @@
 [
     {
-        "article":"Access security advisories for Bitbucket Cloud",
-        "link":"#"
+        "article":"Guides for Visual Studio",
+        "link":"/vfu-support/pages/short-guides/guides-for-visual-studio.html"
     },
     {
-        "article":"View end of support announcements for Bitbucket Cloud",
-        "link":"#"
+        "article":"Adding components to an existing Visual Studio Installation",
+        "link":"/vfu-support/pages/short-guides/adding-components-to-an-existing-visual-studio-installation.html"
     },
     {
-        "article":"Read FAQs about Bitbucket Cloud",
-        "link":"#"
+        "article":"Setting up a Windows Forms application GUI in C++/CLI",
+        "link":"/vfu-support/pages/short-guides/setting-up-a-windows-forms-application-gui-cpp-cli.html"
     },
     {
-        "article":"Creating repositories",
-        "link":"#"
+        "article":"Installing and setting up WSL 2 on Windows",
+        "link":"/vfu-support/pages/short-guides/installing-and-setting-up-wsl2-on-windows.html"
     },
     {
-        "article":"Controlling access to code",
-        "link":"#"
+        "article":"RegSvr32 call failure with error code 0x80070005",
+        "link":"/vfu-support/pages/troubleshooting-runtime-errors/regsvr32-call-failure-with-error-code-0x80070005.html"
     },
     {
-        "article":"Using pull requests in Bitbucket Server",
-        "link":"#"
-    },
-    {
-        "article":"Working with Git LFS files",
-        "link":"#"
-    },
-    {
-        "article":"Comparing changes in Bitbucket Server",
-        "link":"#"
-    },
-    {
-        "article":"Basic Git commands",
-        "link":"#"
-    },
-    {
-        "article":"Permanently authenticating with Git repositories",
-        "link":"#"
-    },
-    {
-        "article":"Manage your plan and billing",
-        "link":"#"
-    },
-    {
-        "article":"Bitbucket Cloud Premium plan",
-        "link":"#"
-    },
-    {
-        "article":"Manage Bitbucket and account settings",
-        "link":"#"
-    },
-    {
-        "article":"Configure SSH and two-step verification",
-        "link":"#"
+        "article":"Program execution failure with error code 0xc000007b",
+        "link":"/vfu-support/pages/troubleshooting-runtime-errors/program-execution-failure-with-error-code-0xc000007b.html"
     },
     {
         "article":"Epstein didn't kill himself",
